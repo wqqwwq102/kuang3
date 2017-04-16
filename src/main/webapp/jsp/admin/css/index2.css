@@ -1,0 +1,122 @@
+.layui-field-title
+{
+    margin: 0 20px;
+}
+.kuang-nav li
+{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 30px;
+}
+#BgSystem .layui-nav-child dd a
+{
+    font-size: 14px;
+    padding: 0 50px;
+}
+.layui-nav-child dd.layui-this a
+{
+    color: pink;
+}
+#BgSystem .layui-nav-item a
+{
+    font-size: 18px;
+}
+.products
+{
+}
+ .main
+{
+    position: absolute;
+    left: 300px;
+    top: 150px;
+    width: 1202px;
+    border:1px solid #ddd;
+    height: 700px;
+    background-color: #eee;
+    float: left;
+    display: none;
+}
+.main.selected
+{
+    display: block;
+}
+/*��ť����*/
+#button
+{
+    position: absolute;
+    width: 70px;
+    color: #fff;
+    background-color:#009688;
+    height: 26px;
+    top: 6px;
+    border: 1px solid #2B2E37;
+    border-radius: 5px;
+}
+#button:hover {
+    -moz-box-shadow:
+    0 15px 30px 0 rgba(255,255,255,.5) inset,
+    0 2px 7px 0 rgba(0,0,0,.2);
+    -webkit-box-shadow:
+    0 15px 30px 0 rgba(255,255,255,.15) inset,
+    0 2px 7px 0 rgba(0,0,0,.2);
+    box-shadow:
+    0 15px 30px 0 rgba(255,255,255,.15) inset,
+    0 2px 7px 0 rgba(0,0,0,.2);
+}
+
+#button:active {
+    -moz-box-shadow:
+    0 15px 30px 0 rgba(255,255,255,.15) inset,
+    0 2px 7px 0 rgba(0,0,0,.2);
+    -webkit-box-shadow:
+    0 15px 30px 0 rgba(255,255,255,.15) inset,
+    0 2px 7px 0 rgba(0,0,0,.2);
+    box-shadow:
+    0 5px 8px 0 rgba(0,0,0,.1) inset,
+    0 1px 4px 0 rgba(0,0,0,.1);
+
+    border: 1px solid #080808;
+}
+/*动态加载数据的表格设置样式*/
+.tableDiv
+{
+    position: relative;
+    top: 5px;
+    left: 150px;
+}
+#bookList{
+    background-color: #007678;
+    position: absolute;
+    left: 0px;
+    width:900px;
+    height: 450px;
+    border-bottom: 1px solid #000;
+}
+#bookList table{
+    color: #fff;
+    border-right:1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+#bookList table tbody tr th
+{
+    background-color: rgba(20, 20, 20, 0.6);
+    font-size: 20px;
+}
+#bookList table tbody tr th,td{
+    border-top: solid 1px #000000;
+    border-left: solid 1px #000000;
+    height: 40px;
+    /*width: 300px;*/
+    text-align: center;
+}
+#pagingLang
+{
+    position: absolute;
+    width: 900px;
+    left: 0;
+    top: 450px;
+    background-color: #007678;
+    text-align: center;
+    border-top: 1px solid #000000;
+}

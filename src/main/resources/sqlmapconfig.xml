@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 类型别名 -->
+  <typeAliases>
+  	<!-- 配置实体类的包
+  		在这个包下面的所有实体类都会自动生成一个别名(简单类名)
+  	 -->
+  	<package name="com.kuang3.entity"/>
+  </typeAliases>
+  
+</configuration>

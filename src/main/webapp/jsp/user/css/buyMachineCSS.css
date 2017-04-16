@@ -1,0 +1,405 @@
+/* 购买矿机 css */
+body
+{
+    width: 100%;
+    height: 100%;
+    background: url("../imgs/g8.png") repeat fixed center;
+}
+.centreCon
+{
+    position: relative;
+    width: 1344px;
+    height: 1620px;
+    margin: 0 auto;
+    top: 70px;
+    background: url("../imgs/buySprite.png") no-repeat;
+    background-position: -34px -1140px;
+}
+.centreCon .blue_back
+{
+    position: absolute;
+    width: 100%;
+}
+.centreCon .blue_back img
+{
+    width: 98%;
+    height: 1510px;
+    margin-left: 10px;
+}
+.centreCon .machine_show
+{
+    position: absolute;
+    width: 100%;
+    height: 670px;
+    top: 695px;
+    left: 25px;
+}
+.centreCon .machine_show .machine_show_img
+{
+    list-style: none;
+}
+.centreCon .machine_show .machine_show_img .first_li
+{
+    position: absolute;
+    width: 490px;
+    height: 370px;
+    top: 90px;
+    left: 30px;
+}
+.centreCon .machine_show .machine_show_img .second_li
+{
+    position: absolute;
+    width: 546px;
+    height: 400px;
+    top: 140px;
+    left: 172px;
+}
+.centreCon .machine_show .machine_show_img .third_li
+{
+    position: absolute;
+    width: 640px;
+    height: 472px;
+    top: 190px;
+    left: 355px;
+}
+.centreCon .machine_show .machine_show_img .fourth_li
+{
+    position: absolute;
+    width: 770px;
+    height: 562px;
+    top: 240px;
+    left: 548px;
+}
+.centreCon .machine_show .machine_show_img li .first_img
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.centreCon .machine_show .machine_show_img .first_li .second_img
+{
+    position: absolute;
+    width: 207px;
+    height: 256px;
+    top: 80px;
+    left: 30px;
+}
+.centreCon .machine_show .machine_show_img .second_li .second_img
+{
+    position: absolute;
+    width: 250px;
+    height: 282px;
+    top: 90px;
+    left: 70px;
+}
+.centreCon .machine_show .machine_show_img .third_li .second_img
+{
+    position: absolute;
+    width: 258px;
+    height: 354px;
+    top: 85px;
+    left: 100px;
+}
+.centreCon .machine_show .machine_show_img .fourth_li .second_img
+{
+    position: absolute;
+    width: 432px;
+    height: 429px;
+    top: 120px;
+    left: 80px;
+}
+.centreCon .machine_show .machine_show_img .fourth_li .main_intro
+{
+    position: absolute;
+    width: 300px;
+    height: 60px;
+    top: 260px;
+    left: 460px;
+    color: #7BF4FD;
+    font-size: 32px;
+    text-align: center;
+    line-height: 60px;
+    font-weight: bold;
+}
+.centreCon .circles
+{
+    position: absolute;
+    top: 700px;
+    left: 50%;
+    margin-left: -237px;
+    width: 500px;
+    height: 170px;
+    background-color: #000;
+    background: url(../singlePhoto/circles.fw.png);
+}
+.centreCon .circles .pre_point
+{
+    position: absolute;
+    top: 28px;
+    left: 66px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, .5);
+    z-index: 10;
+}
+.centreCon .circles .pre_point:hover
+{
+    background-color: rgba(0, 0, 0, .4);
+}
+.centreCon .circles .next_point
+{
+    position: absolute;
+    top: 28px;
+    left: 350px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, .5);
+    z-index: 10;
+}
+.centreCon .circles .next_point:hover
+{
+    background-color: rgba(0, 0, 0, .4);
+}
+.centreCon .circles ul
+{
+    position: absolute;
+    top: 47px;
+    left: 144px;
+    list-style: none;
+    z-index: 10;
+}
+.centreCon .circles ul li
+{
+    float: left;
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
+    margin-left: 22px;
+}
+.centreCon .circles ul li a
+{
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
+    cursor: pointer;
+    z-index: 10;
+    background-color: #fff;
+}
+.centreCon .circles ul li a:hover
+{
+    background-color: rgba(143, 255, 255, .8);
+}
+.centreCon .machine_buy
+{
+    position: absolute;
+    width: 100%;
+    height: 860px;
+    /*background: url("../singlePhoto/machine_intro.png") no-repeat;*/
+    /*background-position: 10px -850px;*/
+}
+.centreCon .machine_buy .intro_forme
+{
+    position: absolute;
+    top: -41px;
+    left: 44px;
+}
+.centreCon .machine_buy .up_list
+{
+    position: absolute;
+    top: 170px;
+    left: 0px;
+    width: 426px;
+    height: 250px;
+    animation:myfirst 1.5s;
+    -moz-animation:myfirst 1.5s; /* Firefox */
+    -webkit-animation:myfirst 1.5s; /* Safari and Chrome */
+    -o-animation:myfirst 1.5s; /* Opera */
+}
+@keyframes myfirst
+{
+    0% {  left:1000px;  }
+    100% {  left: 0px; }
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+    0% {  left:1000px;  }
+    100% {  left: 0px; }
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+    0% {  left:1000px;  }
+    100% {  left: 0px; }
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+    0% {  left:1000px;  }
+    100% {  left: 0px; }
+}
+.centreCon .machine_buy .up_list .up_list_kind
+{
+    position: absolute;
+    width: 324px;
+    height: 136px;
+    left: 55px;
+}
+.centreCon .machine_buy .up_list .up_list_1
+{
+    top: -30px;
+}
+.centreCon .machine_buy .up_list .up_list_2
+{
+    top: 30px;
+}
+.centreCon .machine_buy .up_list .up_list_3
+{
+    top: 90px;
+    left: 228px;
+    animation:myfirst_3 1.5s;
+    -moz-animation:myfirst_3 1.5s; /* Firefox */
+    -webkit-animation:myfirst_3 1.5s; /* Safari and Chrome */
+    -o-animation:myfirst_3 1.5s; /* Opera */
+}
+@keyframes myfirst_3
+{
+    0% {  opacity: 0; left: -1100px;  }
+    100% {  left: 228px; }
+}
+
+@-moz-keyframes myfirst_3 /* Firefox */
+{
+    0% {  opacity: 0; left: -1100px;  }
+    100% {  left: 228px; }
+}
+
+@-webkit-keyframes myfirst_3 /* Safari and Chrome */
+{
+    0% {  opacity: 0; left: -1100px;  }
+    100% {  left: 228px; }
+}
+
+@-o-keyframes myfirst_3 /* Opera */
+{
+    0% {  opacity: 0; left: -1100px;  }
+    100% {  left: 228px; }
+}
+.centreCon .machine_buy .up_list .up_list_4
+{
+    top: 150px;
+}
+.publicAni
+{
+    animation:pubAni 3s;
+    -moz-animation:pubAni 3s; /* Firefox */
+    -webkit-animation:pubAni 3s; /* Safari and Chrome */
+    -o-animation:pubAni 3s; /* Opera */
+}
+@keyframes pubAni
+{
+    0% {  opacity: 0;  }
+    50% {  opacity: 0; }
+    100% {  opacity: 1; }
+}
+
+@-moz-keyframes pubAni /* Firefox */
+{
+    0% {  opacity: 0;  }
+    50% {  opacity: .2; }
+    100% {  opacity: 1; }
+}
+
+@-webkit-keyframes pubAni /* Safari and Chrome */
+{
+    0% {  opacity: 0;  }
+    50% {  opacity: .2; }
+    100% {  opacity: 1; }
+}
+
+@-o-keyframes pubAni /* Opera */
+{
+    0% {  opacity: 0;  }
+    50% {  opacity: .2; }
+    100% {  opacity: 1; }
+}
+.centreCon .machine_buy .up_list a
+{
+    display: block;
+    position: absolute;
+    top: 25px;
+    left: 13px;
+    width: 200px;
+    height: 55px;
+    border-radius: 10px;
+    z-index: 99;
+}
+.centreCon .machine_buy .up_list a:hover
+{
+    background: rgba(0, 0, 0, .3);
+}
+.centreCon .machine_buy_info
+{
+    position: absolute;
+    width: 630px;
+    height: 400px;
+    top: 166px;
+    right: 156px;
+}
+.centreCon .machine_buy_info h1
+{
+    color: #FF8C04;
+    font: bold 30px/44px arial,sans-serif;
+}
+.centreCon .machine_buy_info .info_name
+{
+    position: absolute;
+    width: 220px;
+    height: 44px;
+    top: 40px;
+    left: 60px;
+}
+.centreCon .machine_buy_info .info_img
+{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 20px;
+    left: 310px;
+}
+.centreCon .machine_buy_info .info_img img
+{
+    width: 100%;
+    height: 100%;
+}
+.centreCon .machine_buy_info .info_job
+{
+    position: absolute;
+    width: 300px;
+    height: 170px;
+    top: 135px;
+    left: 20px;
+}
+.centreCon .machine_buy_info .info_job p
+{
+    color: #FF8C04;
+    font: 200 20px/40px arial,sans-serif;
+}
+.centreCon .machine_buy_info .info_price
+{
+    position: absolute;
+    width: 300px;
+    height: 44px;
+    top: 335px;
+    left: 60px;
+}
+.centreCon .machine_buy_info .info_price p
+{
+    color: #FF8C04;
+    font: 200 22px/30px arial,sans-serif;
+}
