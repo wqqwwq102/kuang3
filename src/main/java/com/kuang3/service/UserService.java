@@ -13,5 +13,18 @@ public class UserService {
 	public void saveUser(User user) {
 		userDao.saveUser(user);
 	}
+	public void activeUser(User user) {
+		userDao.activeUser(user);
+	}
+	public int vailEmail(User user) {
+		int i =0;
+		i=userDao.vailEmail(user);
+		return i;
+	}
+	public User login(User formUser) {
+		User user = null;
+		user = userDao.login(formUser);
+		return user;
+	}
 
 }

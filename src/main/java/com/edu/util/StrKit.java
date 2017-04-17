@@ -1,5 +1,8 @@
 package com.edu.util;
 
+import java.util.Calendar;
+import java.util.Random;
+
 
 public class StrKit {
 		
@@ -136,5 +139,29 @@ public class StrKit {
 		public static String uuid() {
 			return java.util.UUID.randomUUID().toString().replace("-", "").toUpperCase();
 		}
+		public static String getuuid(){
+			Calendar calendar = Calendar.getInstance();
+			Integer year = calendar.get(Calendar.YEAR);
+			String yearString  = year.toString();
+			String str = yearString.substring(2);  
+	        Random rand = new Random();  
+	        for(int i=0;i<5;i++){  
+	            int num = rand.nextInt(3);  
+	            switch(num){  
+	                case 0:  
+	                    char c1 = (char)(rand.nextInt(26)+'a');//生成随机小写字母   
+	                    str += c1;  
+	                    break;  
+	                case 1:  
+	                    char c2 = (char)(rand.nextInt(26)+'A');//生成随机大写字母   
+	                    str += c2;  
+	                    break;  
+	                case 2:  
+	                    str += rand.nextInt(10);//生成随机数字  
+	            }  
+	        }  
+	        return str;
+		} 
+		
 	}
 

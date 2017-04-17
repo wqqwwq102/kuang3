@@ -7,4 +7,15 @@
 	<insert id="saveUser" parameterType="user">
 		insert into user(uid,email,pwd,phone,address) values(#{uid},#{email},#{pwd},#{phone},#{address})
 	</insert>
+	
+	<select id="vailEmail"  parameterType="user" resultType="int">
+		select count(*) from user where email=#{email}
+	</select>
+	
+	<update id="activeUser" parameterType="user">
+		update user set status=1 where uid=#{uid}
+	</update>
+	<select id="login" parameterType="user" resultType="user">
+		select * from user where email=#{email} and pwd=#{pwd}
+	</select>
 </mapper>

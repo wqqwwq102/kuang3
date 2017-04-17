@@ -8,5 +8,11 @@ import com.kuang3.entity.User;
 public interface UserDao {
 
 	void saveUser(User user);
+
+	void activeUser(User user);
+
+	int vailEmail(User user);
+
+	User login(User formUser);
 	
 }
