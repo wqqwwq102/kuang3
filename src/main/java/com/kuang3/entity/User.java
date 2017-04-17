@@ -6,6 +6,21 @@ public class User {
 	private String pwd;
 	private String phone;
 	private String address;
+	private int status;
+	private String Captcha;
+	
+	public String getCaptcha() {
+		return Captcha;
+	}
+	public void setCaptcha(String captcha) {
+		Captcha = captcha;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
 	public String getUid() {
 		return uid;
 	}

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -24,7 +25,10 @@
         <form action="" method="post">
             <input type="text" name="log_username" class="username" placeholder="请输入您的邮箱号！">
             <input type="password" name="log_password" class="password" placeholder="请输入您的用户密码！">
-            <input type="Captcha" class="Captcha" name="Captcha" placeholder="请输入验证码！">
+            <input type="text" class="Captcha" name="Captcha" placeholder="请输入验证码！">
+            <div id="vCode">
+            <img id="vCode"  src="<c:url value='/vCode.do'/>">
+            </div>
             <button type="submit" class="submit_button">登录</button>
             <ul class="e_mailExample" >
 
@@ -41,7 +45,11 @@
 <script src="logReg/regJs/jquery-1.11.0.min.js" type="text/javascript"></script>
 <script src="logReg/logJs/scripts.js" ></script>
 <script src="logReg/logJs/logLogic.js"></script>
-
+<script type="text/javascript">
+	$("#vCode").dblclick(function(){
+		$("#vCode").attr("src", "/kuang3/vCode.do?a=" + new Date().getTime());
+	});
+</script>
 </body>
 
 </html>

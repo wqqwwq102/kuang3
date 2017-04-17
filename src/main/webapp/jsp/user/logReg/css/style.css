@@ -1,4 +1,4 @@
-ï»¿
+
 body {
     background: #f8f8f8;
     text-align: center;
@@ -181,11 +181,11 @@ button:active {
     -ms-transition: all .2s;
 }
 
-/*ï¼ï¼ï¼å¢åŠ éƒ¨ä»½çš„CSSï¼ï¼ï¼*/
+/*£­£­£­Ôö¼Ó²¿·İµÄCSS£­£­£­*/
 form,input,button{font-family:Microsoft YaHei,Segoe UI,Tahoma,Arial,Verdana,sans-serif; text-decoration:none; width:100%;}
 button.submit_button{ font-size:24px; letter-spacing:15px;}
 input.Captcha{ width:130px; float:left;}
-
+#vCode{height: 44;float:right;margin-top: 15px; margin-right: 45px}
 .submit_button
 {
     font-size: 24px;

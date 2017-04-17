@@ -40,9 +40,11 @@ public class UserController {
 	 */
 	@RequestMapping("activeUser")
 	public ModelAndView activeUser(User user){
-		userService.activeUser(user);
-		return new ModelAndView("success.jsp").addObject("message", "激活成功");
+		String message = userService.activeUser(user);
+		return new ModelAndView("/jsp/user/message.jsp").addObject("message", message);
 	}
+	
+	
 	@RequestMapping("userLogin")
 	public ModelAndView userLogin(User formUser,HttpSession session){
 		User user = userService.login(formUser);

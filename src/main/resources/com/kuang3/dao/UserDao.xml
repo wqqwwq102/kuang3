@@ -18,4 +18,7 @@
 	<select id="login" parameterType="user" resultType="user">
 		select * from user where email=#{email} and pwd=#{pwd}
 	</select>
+	<select id="findUserByUid" parameterType="user" resultType="user">
+		select status from user where uid=#{uid}
+	</select>
 </mapper>

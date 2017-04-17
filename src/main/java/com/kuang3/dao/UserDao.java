@@ -14,5 +14,7 @@ public interface UserDao {
 	int vailEmail(User user);
 
 	User login(User formUser);
+
+	User findUserByUid(User user);
 	
 }
