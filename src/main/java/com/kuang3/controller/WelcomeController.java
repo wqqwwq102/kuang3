@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.edu.util.VerifyCode;
+import com.kuang3.util.VerifyCode;
 
 @Controller
 public class WelcomeController {

@@ -8,9 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.edu.util.StrKit;
 import com.kuang3.entity.User;
 import com.kuang3.service.UserService;
+import com.kuang3.util.StrKit;
 
 @Controller
 @RequestMapping("/userController")

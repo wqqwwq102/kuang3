@@ -2,7 +2,7 @@ package com.kuang3.test;
 
 import org.junit.Test;
 
-import com.edu.util.StrKit;
+import com.kuang3.util.StrKit;
 
 public class StrKitTest {
 	@Test

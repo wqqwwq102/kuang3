@@ -9,11 +9,11 @@ import javax.mail.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.edu.util.MailKit;
-import com.edu.util.PropKit;
 import com.kuang3.dao.UserDao;
 import com.kuang3.entity.Mail;
 import com.kuang3.entity.User;
+import com.kuang3.util.MailKit;
+import com.kuang3.util.PropKit;
 
 @Service
 public class UserService {

@@ -1,4 +1,4 @@
-package com.edu.util;
+package com.kuang3.util;
 
 /**
  * 全局常量定义接口

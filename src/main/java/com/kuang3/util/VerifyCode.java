@@ -1,4 +1,4 @@
-package com.edu.util;
+package com.kuang3.util;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
