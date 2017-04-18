@@ -8,7 +8,49 @@ public class User {
 	private String address;
 	private int status;
 	private String Captcha;
+	private String qqNumber;
+	private String realName;
+	private String presentPwd;
+	private Double assets;
+	private Double bitcoin;
+	private String idNumber;
 	
+	public String getQqNumber() {
+		return qqNumber;
+	}
+	public void setQqNumber(String qqNumber) {
+		this.qqNumber = qqNumber;
+	}
+	public String getRealName() {
+		return realName;
+	}
+	public void setRealName(String realName) {
+		this.realName = realName;
+	}
+	public String getPresentPwd() {
+		return presentPwd;
+	}
+	public void setPresentPwd(String presentPwd) {
+		this.presentPwd = presentPwd;
+	}
+	public Double getAssets() {
+		return assets;
+	}
+	public void setAssets(Double assets) {
+		this.assets = assets;
+	}
+	public Double getBitcoin() {
+		return bitcoin;
+	}
+	public void setBitcoin(Double bitcoin) {
+		this.bitcoin = bitcoin;
+	}
+	public String getIdNumber() {
+		return idNumber;
+	}
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
+	}
 	public String getCaptcha() {
 		return Captcha;
 	}
@@ -54,7 +96,12 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [uid=" + uid + ", email=" + email + ", pwd=" + pwd
-				+ ", phone=" + phone + ", address=" + address + "]";
+				+ ", phone=" + phone + ", address=" + address + ", status="
+				+ status + ", Captcha=" + Captcha + ", qqNumber=" + qqNumber
+				+ ", realName=" + realName + ", presentPwd=" + presentPwd
+				+ ", assets=" + assets + ", bitcoin=" + bitcoin + ", idNumber="
+				+ idNumber + "]";
 	}
+
 	
 }

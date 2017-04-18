@@ -24,4 +24,10 @@
 	<select id="findEmail" parameterType="java.lang.String" resultType="int">
 		select count(*) from user where email = #{email}
 	</select>
+	<insert id="saveIp" parameterType="ipLog">
+		insert into iplog values(#{ip},#{ipDate})
+	</insert>
+	<select id="isExistIp" parameterType="ipLog" resultType="int">
+		select count(*) from iplog where ip=#{ip} and ipDate=#{ipDate}
+	</select>
 </mapper>

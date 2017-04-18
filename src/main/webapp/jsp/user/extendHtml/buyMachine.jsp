@@ -17,12 +17,12 @@
 <!--顶部个人信息-->
 <div class="user_info">
     <div class="user_asset">
-        持有:<span></span>
-        生产总值:<span></span>
+        持有:<span>${sessionScope.user}</span>
+        生产总值:<span>${sessionScope.user.assets}</span>
     </div>
     <div class="user_id">
-        ID:<span></span>
-        邮箱:<span></span>
+        ID:<span>${sessionScope.user.uid}</span>
+        邮箱:<span>${sessionScope.user.email}</span>
     </div>
 </div>
 <!--头部导航-->
@@ -30,7 +30,7 @@
     <div class="content"> <a href="#" id="logo"><img src="../imgs/logo.png" height="40" /></a>
         <ul id="nav">
             <li class="navitem"><a href="../index.jsp">首页</a></li>
-            <li class="navitem"><a class="active" href="#" target="_self" href="#" >我的账户 </a> </li>
+            <li class="navitem"><a class="active"  target="_self" href="<c:url value='/userController/listMyInfo.do'/>" >我的账户</a> </li>
             <li class="navitem"><a href="#" >算力交易</a> </li>
             <li class="navitem"><a href="#" >比特币兑换</a> </li>
             <li class="navitem"><a href="#" >融资借贷</a> </li>

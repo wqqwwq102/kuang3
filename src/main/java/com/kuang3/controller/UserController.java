@@ -1,21 +1,25 @@
 package com.kuang3.controller;
 
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alibaba.fastjson.JSONObject;
+import com.kuang3.dao.UserDao;
 import com.kuang3.entity.Message;
+import com.kuang3.entity.Order;
 import com.kuang3.entity.User;
 import com.kuang3.service.UserService;
 import com.kuang3.util.StrKit;
+import com.kuang3.util.UserUtil;
 
 @Controller
 @RequestMapping("/userController")
@@ -56,11 +60,12 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("userLogin")
-	public ModelAndView userLogin(User formUser,HttpSession session){
+	public ModelAndView userLogin(User formUser,HttpSession session,HttpServletRequest request){
 		User user = userService.login(formUser);
 		if(user==null){
-			return new ModelAndView("/jsps/user/log.jsp").addObject("error", "邮箱或者密码错误");
+			return new ModelAndView("redirect:/jsps/user/log.jsp").addObject("error", "邮箱或者密码错误");
 		}
+		System.out.println(UserUtil.getIpAddr(request));
 		session.setAttribute("user", user);
 		return new ModelAndView("redirect:/jsp/user/index.jsp");
 	}
@@ -72,7 +77,6 @@ public class UserController {
 	 */
 	@RequestMapping(value="valiCaptcha",method=RequestMethod.POST)
 	public@ResponseBody Message valiCaptcha(String captcha,HttpSession session){
-		JSONObject jo=new JSONObject();
 		Message msg = new Message();
 		String vCode = (String) session.getAttribute("vCode");
 		if(vCode.equalsIgnoreCase(captcha)){
@@ -83,6 +87,12 @@ public class UserController {
 		return msg;
 		
 	}
+	/**
+	 * 验证码邮箱是否被注册
+	 * @param captcha
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping("valiEmail")
 	public @ResponseBody Message valiEmail(String email){
 		Message msg = new Message();
@@ -92,6 +102,15 @@ public class UserController {
 		}else{
 			msg.setMessage("nopass");
 		}
+		System.out.println(msg.getMessage());
 		return msg;
+	}
+	
+	@RequestMapping("listMyInfo")
+	public ModelAndView listMyInfo(HttpSession session){
+		User user = (User) session.getAttribute("user");
+		List<Order> olist = userService.findOrder(user);
+		return new ModelAndView("redirect:/jsp/user/extendHtml/personAccount.jsp").addObject("user", user);
+		
 	}
 }

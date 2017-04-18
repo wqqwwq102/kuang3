@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+        <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <!DOCTYPE html>
 <html  xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -64,7 +65,7 @@
       <div class="content"> <a href="#" id="logo"><img src="images/logo.png" height="40" /></a>
     <ul id="nav">
           <li class="navitem"><a class="active" href="#" target="_self">首页</a></li>
-          <li class="navitem"><a href="extendHtml/personAccount.jsp" >我的账户 </a> </li>
+          <li class="navitem"><a href="<c:url value='/userController/listMyInfo.do'/>" >我的账户 </a> </li>
           <li class="navitem"><a href="#" >算力交易</a> </li>
           <li class="navitem"><a href="#" >比特币兑换</a> </li>
           <li class="navitem"><a href="#" >融资借贷</a> </li>

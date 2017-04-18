@@ -88,6 +88,24 @@ usernameInput.focus(function()    //定焦 显示
                 }
             }
         }
+        var email = $("#reg_email").val();
+        $.ajax({
+    		type:"post",
+    		url:"/kuang3/userController/valiEmail.do",
+    		cache:false, 
+    	    async:false,
+    	    dataType:"json",
+    	    data:{"email":email},
+    	    success:function(data){
+    	    	//alert(data.message);
+				if(data.message=="nopass"){
+					$("#codeMsg").text("邮箱已存在").addClass("error");
+				}else{
+					$("#codeMsg").text("邮箱可以注册").addClass("correct");
+				}
+				
+    	    }
+    });
     });
     //监听 邮箱input 键盘弹起 (keyup) 事件, 时刻键入邮箱模板
     usernameInput.bind("propertychange input",function()
@@ -115,13 +133,45 @@ usernameInput.focus(function()    //定焦 显示
                 }
             }
         }
+
+        
     });
 });
 usernameInput.blur(function()    // 失焦 隐藏
 {
-    e_mailExample.fadeOut();
+	e_mailExample.fadeOut();
     e_mailExample.fadeOut("slow");
     e_mailExample.fadeOut(500);
+    
+    var email = $("#reg_email").val();
+    var isEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;  
+    //清空显示层中的数据      
+    $("#emailMess").html("");  
+    if(email == ""){  
+          $("#emailMess").html("<font color='red'>"+"邮箱不能为空"+"</font>");  
+    }  
+    else if(!(isEmail.test(email))){  
+          $("#emailMess").html("<font color='red'>"+"邮箱格式不正确"+"</font>");  
+    } else{
+    $.ajax({
+    	
+    		type:"post",
+    		url:"/kuang3/userController/valiEmail.do",
+    		cache:false, 
+    	    async:false,
+    	    dataType:"json",
+    	    data:{"email":email},
+    	    success:function(data){
+    	    	//alert(data.message);
+				if(data.message=="nopass"){
+					$("#codeMsg").text("邮箱已存在").addClass("error");
+				}else{
+					$("#codeMsg").text("邮箱可以注册").addClass("correct");
+				}
+				
+    	    }
+    });
+    }
 });
 
 /*-----------------监听 密码input--------------------*/

@@ -22,9 +22,9 @@
 <div class="autoBg">
     <div class="page-container" style="position: relative;">
         <h1>登录</h1>
-        <form action="" method="post">
-            <input type="text" name="log_username" class="username" placeholder="请输入您的邮箱号！" id = "eamil">
-            <input type="password" name="log_password" class="password" placeholder="请输入您的用户密码！">
+        <form action="<c:url value='/userController/userLogin.do'/>" method="post">
+            <input type="text" name="email" class="username" placeholder="请输入您的邮箱号！" id = "eamil">
+            <input type="password" name="pwd" class="password" placeholder="请输入您的用户密码！">
             <input type="text" class="Captcha" name="Captcha"  id = "captcha"placeholder="请输入验证码！">
             <div id="vCode">
             <img id="vCodeImg"  src="<c:url value='/vCode.do'/>">
@@ -59,7 +59,7 @@ $(document).ready(function(){
 			"/kuang3/userController/valiCaptcha.do",
 			{"captcha":captcha},
 			function(data){
-				alert(data.message);
+				//alert(data.message);
 				if(data.message=="nopass"){
 					$("#codeMsg").text("验证码不正确").addClass("error");
 				}else{

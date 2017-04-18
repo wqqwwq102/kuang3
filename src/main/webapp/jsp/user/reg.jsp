@@ -86,26 +86,7 @@
 <script src="logReg/regJs/distpicker.min.js"></script>
 <script src="logReg/regJs/main.js"></script>
 <script src="logReg/regJs/regLogic.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-$("#reg_email").blur(function(){
-	var eamil = $(this).val();
-	$.post(
-		"/kuang3/userController/valiEmail.do",
-		{"reg_email":reg_email},
-		function(data){
-			alert(data.message);
-			if(data.message=="nopass"){
-				$("#codeMsg").text("邮箱已存在").addClass("error");
-			}else{
-				$("#codeMsg").text("邮箱可以注册").addClass("correct");
-			}
-		
-		}
-	)
-});
-});
-</script>
+
 
 </body>
 </html>

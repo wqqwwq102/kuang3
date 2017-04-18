@@ -2,21 +2,41 @@ package com.kuang3.controller;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kuang3.entity.IpLog;
+import com.kuang3.service.UserService;
+import com.kuang3.util.UserUtil;
 import com.kuang3.util.VerifyCode;
 
 @Controller
 public class WelcomeController {
-	
+	@Autowired
+	UserService UserService;
 	@RequestMapping("index")
-	public String index(){
+	public String index(HttpSession session,HttpServletRequest request){
+		String ip = UserUtil.getIpAddr(request);
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String ipDate = sdf.format(date);
+		IpLog ipLog =new IpLog();
+		ipLog.setIp(ip);
+		ipLog.setIpDate(ipDate)
+		;
+		if(UserService.isExistIp(ipLog)<1){
+		UserService.saveIp(ipLog);
+		}
 		return "redirect:/jsp/user/log.jsp";
 	}
 	@RequestMapping("vCode")

@@ -1,7 +1,11 @@
 package com.kuang3.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
+import com.kuang3.entity.IpLog;
+import com.kuang3.entity.Order;
 import com.kuang3.entity.User;
 
 @Repository
@@ -18,5 +22,11 @@ public interface UserDao {
 	User findUserByUid(User user);
 
 	int findEmail(String email);
-	
+
+	List<Order> findOrderByUser(User user);
+
+	void saveIp(IpLog ipLog);
+
+	int isExistIp(IpLog ipLog);
+
 }

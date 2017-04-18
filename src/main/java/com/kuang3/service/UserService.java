@@ -2,6 +2,7 @@ package com.kuang3.service;
 
 import java.io.IOException;
 import java.text.MessageFormat;
+import java.util.List;
 
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -10,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kuang3.dao.UserDao;
+import com.kuang3.entity.IpLog;
 import com.kuang3.entity.Mail;
+import com.kuang3.entity.Order;
 import com.kuang3.entity.User;
 import com.kuang3.util.MailKit;
 import com.kuang3.util.PropKit;
@@ -65,6 +68,21 @@ public class UserService {
 		int count = 0;
 		count = userDao.findEmail(email);
 		return count;
+	}
+	public List<Order> findOrder(User user) {
+		List<Order> olist = userDao.findOrderByUser(user);
+		
+		return olist;
+	}
+
+	public void saveIp(IpLog ipLog) {
+		userDao.saveIp(ipLog);
+	}
+	
+	public int isExistIp(IpLog ipLog) {
+		int i =0;
+		i=userDao.isExistIp(ipLog);
+		return i;
 	}
 
 }

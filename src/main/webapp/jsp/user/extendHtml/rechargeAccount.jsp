@@ -29,7 +29,7 @@
     <!-- 右边导航栏-->
     <ul class="layui-nav" id="layuiNav" style="float: right;">
         <li class="layui-nav-item"><a href="">首页</a></li>
-        <li class="layui-nav-item"><a href="../extendHtml/personAccount.jsp">我的账户</a></li>
+        <li class="layui-nav-item"><a href="<c:url value='/userController/listMyInfo.do'/>">我的账户</a></li>
         <li class="layui-nav-item" style="background-color: #009688;"><a href="../extendHtml/rechargeAccount.jsp">充值提现</a></li>
         <li class="layui-nav-item"><a href="../extendHtml/buyMachine_A721.jsp">矿机购买</a></li>
         <li class="layui-nav-item"><a href="../extendHtml/accountSet.jsp">账户设置</a></li>
