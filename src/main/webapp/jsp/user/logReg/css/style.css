@@ -185,7 +185,7 @@ button:active {
 form,input,button{font-family:Microsoft YaHei,Segoe UI,Tahoma,Arial,Verdana,sans-serif; text-decoration:none; width:100%;}
 button.submit_button{ font-size:24px; letter-spacing:15px;}
 input.Captcha{ width:130px; float:left;}
-#vCode{height: 44;float:right;margin-top: 15px; margin-right: 45px}
+#vCode{float:right;margin-top: 30px; margin-right: 45px;border-top:50px;margin-left: 20px}
 .submit_button
 {
     font-size: 24px;
@@ -252,4 +252,15 @@ input.Captcha{ width:130px; float:left;}
 .jumpInfor li a:hover
 {
     color: #cd0a0a;
+}
+.correct
+{
+	color:green;
+}
+.error{
+	color:#cc3300;
+}
+#codeMsgDiv{
+	float:left;
+	margin-top: 50px;
 }

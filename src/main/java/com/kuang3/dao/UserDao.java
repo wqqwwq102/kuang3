@@ -16,5 +16,7 @@ public interface UserDao {
 	User login(User formUser);
 
 	User findUserByUid(User user);
+
+	int findEmail(String email);
 	
 }

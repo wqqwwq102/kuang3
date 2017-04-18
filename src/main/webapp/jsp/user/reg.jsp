@@ -17,7 +17,7 @@
         <form id="regUnameForm" action="<c:url  value='/userController/reg.do'/>" method="post">
             <div class="reg_set" style="top: 80px;">
                 邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱
-                <input id="reg_email" class="inp_set" type="text" value="" placeholder="请输入邮箱号进行注册" name="email"/>
+                <input id="reg_email" class="inp_set" type="text" value="" placeholder="请输入邮箱号进行注册" name="email" />
                 <ul class="e_mailExample" >
 
                 </ul>
@@ -86,7 +86,26 @@
 <script src="logReg/regJs/distpicker.min.js"></script>
 <script src="logReg/regJs/main.js"></script>
 <script src="logReg/regJs/regLogic.js"></script>
-
+<script type="text/javascript">
+$(document).ready(function(){
+$("#reg_email").blur(function(){
+	var eamil = $(this).val();
+	$.post(
+		"/kuang3/userController/valiEmail.do",
+		{"reg_email":reg_email},
+		function(data){
+			alert(data.message);
+			if(data.message=="nopass"){
+				$("#codeMsg").text("邮箱已存在").addClass("error");
+			}else{
+				$("#codeMsg").text("邮箱可以注册").addClass("correct");
+			}
+		
+		}
+	)
+});
+});
+</script>
 
 </body>
 </html>

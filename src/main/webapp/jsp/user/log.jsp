@@ -23,11 +23,14 @@
     <div class="page-container" style="position: relative;">
         <h1>登录</h1>
         <form action="" method="post">
-            <input type="text" name="log_username" class="username" placeholder="请输入您的邮箱号！">
+            <input type="text" name="log_username" class="username" placeholder="请输入您的邮箱号！" id = "eamil">
             <input type="password" name="log_password" class="password" placeholder="请输入您的用户密码！">
-            <input type="text" class="Captcha" name="Captcha" placeholder="请输入验证码！">
+            <input type="text" class="Captcha" name="Captcha"  id = "captcha"placeholder="请输入验证码！">
             <div id="vCode">
-            <img id="vCode"  src="<c:url value='/vCode.do'/>">
+            <img id="vCodeImg"  src="<c:url value='/vCode.do'/>">
+            </div><br>
+            <div id="codeMsgDiv">
+            	<label><span id="codeMsg"></span></label>
             </div>
             <button type="submit" class="submit_button">登录</button>
             <ul class="e_mailExample" >
@@ -46,9 +49,28 @@
 <script src="logReg/logJs/scripts.js" ></script>
 <script src="logReg/logJs/logLogic.js"></script>
 <script type="text/javascript">
+$(document).ready(function(){
 	$("#vCode").dblclick(function(){
-		$("#vCode").attr("src", "/kuang3/vCode.do?a=" + new Date().getTime());
+		$("#vCodeImg").attr("src", "/kuang3/vCode.do?a=" + new Date().getTime());
 	});
+	$("#captcha").blur(function(){
+		var captcha = $(this).val();
+		$.post(
+			"/kuang3/userController/valiCaptcha.do",
+			{"captcha":captcha},
+			function(data){
+				alert(data.message);
+				if(data.message=="nopass"){
+					$("#codeMsg").text("验证码不正确").addClass("error");
+				}else{
+					$("#codeMsg").text("验证码正确").addClass("correct");
+				}
+			
+			}
+		)
+	});
+
+});
 </script>
 </body>
 

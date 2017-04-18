@@ -21,4 +21,7 @@
 	<select id="findUserByUid" parameterType="user" resultType="user">
 		select status from user where uid=#{uid}
 	</select>
+	<select id="findEmail" parameterType="java.lang.String" resultType="int">
+		select count(*) from user where email = #{email}
+	</select>
 </mapper>

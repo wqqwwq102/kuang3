@@ -61,5 +61,10 @@ public class UserService {
 		user = userDao.login(formUser);
 		return user;
 	}
+	public int findEmail(String email) {
+		int count = 0;
+		count = userDao.findEmail(email);
+		return count;
+	}
 
 }

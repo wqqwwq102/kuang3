@@ -13,5 +13,4 @@
 <context:component-scan base-package="com.kuang3.controller"></context:component-scan>
 <!-- spring mvc相关注解的驱动, 让系统支持相关注解, @RequestMapping , @ResponseBody -->
 <mvc:annotation-driven/>
-
 </beans>
