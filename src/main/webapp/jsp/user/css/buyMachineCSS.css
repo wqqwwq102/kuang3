@@ -403,3 +403,37 @@ body
     color: #FF8C04;
     font: 200 22px/30px arial,sans-serif;
 }
+.centreCon .machine_buy_button
+{
+    position: absolute;
+    width: 180px;
+    height: 55px;
+    top: 525px;
+    left: 980px;
+}
+.centreCon .machine_buy_button button
+{
+    position: absolute;
+    width: 180px;
+    height: 55px;
+}
+.centreCon .machine_buy_button button img
+{
+    position: absolute;
+    width: 200px;
+    height: 66px;
+    top: -8px;
+    left: -12px;
+    cursor: pointer;
+}
+.centreCon .machine_buy_button button img:hover
+{
+    box-shadow: #009986;
+}
+.centreCon .machine_buy_button button img:active
+{
+    width: 194px;
+    height: 60px;
+    top: -5px;
+    left: -10px;
+}

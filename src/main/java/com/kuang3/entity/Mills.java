@@ -4,7 +4,7 @@ public class Mills {
 	private String mid;
 	private String performance;
 	private String type;
-	private double maintenanceCost;
+	private Double maintenanceCost;
 	public String getMid() {
 		return mid;
 	}
@@ -23,10 +23,10 @@ public class Mills {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public double getMaintenanceCost() {
+	public Double getMaintenanceCost() {
 		return maintenanceCost;
 	}
-	public void setMaintenanceCost(double maintenanceCost) {
+	public void setMaintenanceCost(Double maintenanceCost) {
 		this.maintenanceCost = maintenanceCost;
 	}
 	

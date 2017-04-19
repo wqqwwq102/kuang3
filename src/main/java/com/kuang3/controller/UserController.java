@@ -20,6 +20,7 @@ import com.kuang3.entity.User;
 import com.kuang3.service.UserService;
 import com.kuang3.util.StrKit;
 import com.kuang3.util.UserUtil;
+import com.mysql.fabric.xmlrpc.base.Array;
 
 @Controller
 @RequestMapping("/userController")
@@ -105,12 +106,27 @@ public class UserController {
 		System.out.println(msg.getMessage());
 		return msg;
 	}
-	
+	/**
+	 * 展示我的账户那一栏的所有数据
+	 * 待测试
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping("listMyInfo")
 	public ModelAndView listMyInfo(HttpSession session){
 		User user = (User) session.getAttribute("user");
 		List<Order> olist = userService.findOrder(user);
-		return new ModelAndView("redirect:/jsp/user/extendHtml/personAccount.jsp").addObject("user", user);
-		
+		String arr[][] = new String[olist.size()][6];
+		int i=0;
+		for (Order order : olist) {
+			arr[i][0]= order.getOrderid();
+			arr[i][1]=order.getMills().getMid();
+			arr[i][2]=order.getMills().getPerformance();
+			arr[i][3]=order.getPrice().toString();
+			arr[i][4]=order.getMills().getMaintenanceCost().toString();
+			arr[i][5]=order.getBuyTime().toString();
+			i++;
+		}
+		return new ModelAndView("redirect:/jsp/user/extendHtml/personAccount.jsp").addObject("user", user).addObject("arr", arr);
 	}
 }

@@ -4,30 +4,50 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.kuang3.dao.UserDao">
-	<insert id="saveUser" parameterType="user">
-		insert into user(uid,email,pwd,phone,address) values(#{uid},#{email},#{pwd},#{phone},#{address})
-	</insert>
-	
-	<select id="vailEmail"  parameterType="user" resultType="int">
-		select count(*) from user where email=#{email}
+	<resultMap type="order" id="orderMap" autoMapping="true">
+		<association property="user" column="uid" select="findUserByUid"
+			autoMapping="true" />
+		<association property="mills" column="mid" select="findMillsByMid" />
+	</resultMap>
+	<select id="findMillsByMid" parameterType="mills" resultType="mills">
+		select * from mills where mid=#{mid}
 	</select>
-	
+	<insert id="saveUser" parameterType="user">
+		insert into
+		user(uid,email,pwd,phone,address)
+		values(#{uid},#{email},#{pwd},#{phone},#{address})
+	</insert>
+
+	<select id="vailEmail" parameterType="user" resultType="int">
+		select
+		count(*) from user where email=#{email}
+	</select>
+
 	<update id="activeUser" parameterType="user">
-		update user set status=1 where uid=#{uid}
+		update user set status=1
+		where uid=#{uid}
 	</update>
 	<select id="login" parameterType="user" resultType="user">
-		select * from user where email=#{email} and pwd=#{pwd}
+		select * from
+		user where email=#{email} and pwd=#{pwd}
 	</select>
 	<select id="findUserByUid" parameterType="user" resultType="user">
 		select status from user where uid=#{uid}
 	</select>
-	<select id="findEmail" parameterType="java.lang.String" resultType="int">
+	<select id="findEmail" parameterType="java.lang.String"
+		resultType="int">
 		select count(*) from user where email = #{email}
 	</select>
 	<insert id="saveIp" parameterType="ipLog">
-		insert into iplog values(#{ip},#{ipDate})
+		insert into iplog
+		values(#{ip},#{ipDate})
 	</insert>
 	<select id="isExistIp" parameterType="ipLog" resultType="int">
-		select count(*) from iplog where ip=#{ip} and ipDate=#{ipDate}
+		select
+		count(*) from iplog where ip=#{ip} and ipDate=#{ipDate}
+	</select>
+	<select id="findOrderByUser" parameterType="user" resultMap="orderMap">
+		select * from order o left join user u on(o.uid=u.uid) left join mills
+		m on(o.mid=m.mid) where u.uid=#{uid}
 	</select>
 </mapper>

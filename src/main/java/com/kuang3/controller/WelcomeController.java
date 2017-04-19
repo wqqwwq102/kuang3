@@ -24,6 +24,12 @@ import com.kuang3.util.VerifyCode;
 public class WelcomeController {
 	@Autowired
 	UserService UserService;
+	/**
+	 * 欢迎页转发
+	 * @param session
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping("index")
 	public String index(HttpSession session,HttpServletRequest request){
 		String ip = UserUtil.getIpAddr(request);
@@ -39,6 +45,11 @@ public class WelcomeController {
 		}
 		return "redirect:/jsp/user/log.jsp";
 	}
+	/**
+	 * 生成验证码
+	 * @param session
+	 * @param response
+	 */
 	@RequestMapping("vCode")
 	public void vCode(HttpSession session,HttpServletResponse response){
 		VerifyCode vc = new VerifyCode();

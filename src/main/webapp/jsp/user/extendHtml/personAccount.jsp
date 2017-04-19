@@ -339,6 +339,7 @@
             <div class="up_list_3 up_list_kind"><a href="../extendHtml/buyMachine.jsp"></a><img src="../singlePhoto/buyMachine.fw.png" alt=""/></div>
             <div class="up_list_4 up_list_kind"><a href="../extendHtml/accountSet.jsp"></a><img src="../singlePhoto/accountSet.fw.png" alt=""/></div>
         </div>
+        <input type="hidden" id=data value="${arr}">
         <!-- 矿机数量-->
         <div class="up_machineNum publicAni">
             <table id="machineNum">
@@ -404,16 +405,8 @@
     var td = document.getElementsByTagName("td");
     var th = document.getElementsByTagName("th");
     var tdLen = document.getElementsByTagName("td").length;
-    var data =
-    {
-        data:[11, 22, 33, 44, 55, 66, 77, 11, 22, 33, 44],
-        time:[1, 2, 3, 4, 5, 6, 7, 11, 22, 33, 44],
-        time2:[1, 2, 3, 4, 5, 6, 7, 11, 22, 33, 44],
-        time3:[1, 2, 3, 4, 5, 6, 7, 11, 22, 33, 44],
-        time4:[1, 2, 3, 4, 5, 6, 7, 11, 22, 33, 44],
-        time5:[1, 2, 3, 4, 5, 6, 7, 11, 22, 33, 44]
-    };
-    var dataLen = data.data.length;
+    var data = ${data};
+    var dataLen = data.length;
     tableShow();
     // 分页实现
     function tableShow()
@@ -431,12 +424,12 @@
                 last = last >= dataLen ? (dataLen-1) : last;
                 for(var i = (curr*nums - nums); i <= last; i++)
                 {
-                    str += '<tr><td>'+data.data[i]+'</td>';
-                    str += '<td>'+data.time2[i]+'</td>';
-                    str += '<td>'+data.time3[i]+'</td>';
-                    str += '<td>'+data.time4[i]+'</td>';
-                    str += '<td>'+data.time5[i]+'</td>';
-                    str += '<td>'+data.time[i]+'</td></tr>';
+                    str += '<tr><td>'+data[i][0]+'</td>';
+                    str += '<td>'+data[i][1]+'</td>';
+                    str += '<td>'+data[i][2]+'</td>';
+                    str += '<td>'+data[i][3]+'</td>';
+                    str += '<td>'+data[i][4]+'</td>';
+                    str += '<td>'+data[i][5]+'</td></tr>';
                 }
                 return str;
             };

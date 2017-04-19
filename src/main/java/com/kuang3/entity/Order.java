@@ -41,7 +41,7 @@ public class Order {
 	public void setMills(Mills mills) {
 		this.mills = mills;
 	}
-	public double getPrice(){
+	public Double getPrice(){
 		return count*(mills.getMaintenanceCost());
 	}
 }
