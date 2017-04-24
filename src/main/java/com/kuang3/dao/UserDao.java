@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.kuang3.entity.IpLog;
 import com.kuang3.entity.Order;
 import com.kuang3.entity.User;
+import com.kuang3.entity.UserLog;
 
 @Repository
 public interface UserDao {
@@ -28,5 +29,7 @@ public interface UserDao {
 	void saveIp(IpLog ipLog);
 
 	int isExistIp(IpLog ipLog);
+
+	void saveuserLog(UserLog userLog);
 
 }

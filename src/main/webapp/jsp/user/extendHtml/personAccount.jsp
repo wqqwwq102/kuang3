@@ -344,7 +344,7 @@
         <div class="up_machineNum publicAni">
             <table id="machineNum">
                 <tr>
-                    <th>阿瓦隆-A741</th>
+                    <th></th>
                     <th>阿瓦隆-A721</th>
                 </tr>
                 <tr>
@@ -384,8 +384,7 @@
         <div id="pagingLang" style="position: absolute;top: 615px; left: 735px;"></div>
     </div>
 </div>
-
-
+<input id="data" value="${arr}">
 <script src="../libs/layui/layui.js" charset="utf-8"></script>
 <script src="../js/citySelect/jquery-1.11.0.min.js"></script>
 <script src="../js/citySelect/distpicker.data.min.js"></script>
@@ -405,7 +404,7 @@
     var td = document.getElementsByTagName("td");
     var th = document.getElementsByTagName("th");
     var tdLen = document.getElementsByTagName("td").length;
-    var data = ${data};
+    var data = ${arr};
     var dataLen = data.length;
     tableShow();
     // 分页实现
@@ -424,12 +423,12 @@
                 last = last >= dataLen ? (dataLen-1) : last;
                 for(var i = (curr*nums - nums); i <= last; i++)
                 {
-                    str += '<tr><td>'+data[i][0]+'</td>';
-                    str += '<td>'+data[i][1]+'</td>';
-                    str += '<td>'+data[i][2]+'</td>';
-                    str += '<td>'+data[i][3]+'</td>';
-                    str += '<td>'+data[i][4]+'</td>';
-                    str += '<td>'+data[i][5]+'</td></tr>';
+                    str += '<tr><td>'+data[i].orderid+'</td>';
+                    str += '<td>'+data[i].mid+'</td>';
+                    str += '<td>'+data[i].performance+'</td>';
+                    str += '<td>'+data[i].performance+'</td>';
+                    str += '<td>'+data[i].maintenanceCost+'</td>';
+                    str += '<td>'+data[i].buyTime+'</td></tr>';
                 }
                 return str;
             };
@@ -442,7 +441,7 @@
 //                    var tbody = document.getElementsByTagName('tbody')[0];
                     var tbody = document.getElementById('biuuu_city_list');
                     tbody.innerHTML = '';
-                    var text = "<th>订单编号</th> <th>型号</th> <th>生产力(T/S)</th> <th>收益(BTC)</th> <th>维护费用(￥/T/day)</th> <th>购买时间</th>" + render(obj.curr);
+                    var text = render(obj.curr);
                     tbody.innerHTML = text;
                     for(var m = th.length - 6; m < th.length; m++)
                     {

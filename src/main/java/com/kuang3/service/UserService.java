@@ -15,6 +15,7 @@ import com.kuang3.entity.IpLog;
 import com.kuang3.entity.Mail;
 import com.kuang3.entity.Order;
 import com.kuang3.entity.User;
+import com.kuang3.entity.UserLog;
 import com.kuang3.util.MailKit;
 import com.kuang3.util.PropKit;
 
@@ -83,6 +84,9 @@ public class UserService {
 		int i =0;
 		i=userDao.isExistIp(ipLog);
 		return i;
+	}
+	public void saveuserLog(UserLog userLog) {
+		userDao.saveuserLog(userLog);
 	}
 
 }

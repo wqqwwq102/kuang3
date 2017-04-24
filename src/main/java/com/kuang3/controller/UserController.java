@@ -1,6 +1,10 @@
 package com.kuang3.controller;
 
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,14 +17,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kuang3.dao.UserDao;
+import com.alibaba.fastjson.JSON;
 import com.kuang3.entity.Message;
 import com.kuang3.entity.Order;
+import com.kuang3.entity.OrderVo;
 import com.kuang3.entity.User;
+import com.kuang3.entity.UserLog;
 import com.kuang3.service.UserService;
 import com.kuang3.util.StrKit;
 import com.kuang3.util.UserUtil;
-import com.mysql.fabric.xmlrpc.base.Array;
 
 @Controller
 @RequestMapping("/userController")
@@ -68,6 +73,13 @@ public class UserController {
 		}
 		System.out.println(UserUtil.getIpAddr(request));
 		session.setAttribute("user", user);
+		String ip = UserUtil.getIpAddr(request);
+		Date date = new Date();
+		UserLog userLog = new UserLog();
+		userLog.setUid(user.getUid());
+		userLog.setLoginIP(ip);
+		userLog.setLoginTime(date);
+		userService.saveuserLog(userLog);
 		return new ModelAndView("redirect:/jsp/user/index.jsp");
 	}
 	/**
@@ -115,18 +127,22 @@ public class UserController {
 	@RequestMapping("listMyInfo")
 	public ModelAndView listMyInfo(HttpSession session){
 		User user = (User) session.getAttribute("user");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		List<Order> olist = userService.findOrder(user);
-		String arr[][] = new String[olist.size()][6];
-		int i=0;
+		List<OrderVo> ovv = new ArrayList<OrderVo>();
 		for (Order order : olist) {
-			arr[i][0]= order.getOrderid();
-			arr[i][1]=order.getMills().getMid();
-			arr[i][2]=order.getMills().getPerformance();
-			arr[i][3]=order.getPrice().toString();
-			arr[i][4]=order.getMills().getMaintenanceCost().toString();
-			arr[i][5]=order.getBuyTime().toString();
-			i++;
+			OrderVo ov = new OrderVo();
+			ov.setOrderid(order.getOrderid());
+			ov.setMid( order.getMills().getMid());
+			ov.setPerformance(order.getMills().getPerformance());
+			ov.setMaintenanceCost(order.getMills().getMaintenanceCost());
+			ov.setPrice(order.getCount()*ov.getMaintenanceCost());
+			ov.setBuyTime(sdf.format(order.getBuyTime()).toString());
+			ovv.add(ov);
 		}
-		return new ModelAndView("redirect:/jsp/user/extendHtml/personAccount.jsp").addObject("user", user).addObject("arr", arr);
+		JSON jo = (JSON) JSON.toJSON(ovv);
+		System.out.println(jo);
+		session.setAttribute("arr", JSON.toJSON(jo));
+		return new ModelAndView("redirect:/jsp/user/extendHtml/personAccount.jsp").addObject("user", user);
 	}
 }

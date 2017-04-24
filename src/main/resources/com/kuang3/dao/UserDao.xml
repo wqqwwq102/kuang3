@@ -32,7 +32,7 @@
 		user where email=#{email} and pwd=#{pwd}
 	</select>
 	<select id="findUserByUid" parameterType="user" resultType="user">
-		select status from user where uid=#{uid}
+		select * from user where uid=#{uid}
 	</select>
 	<select id="findEmail" parameterType="java.lang.String"
 		resultType="int">
@@ -47,7 +47,11 @@
 		count(*) from iplog where ip=#{ip} and ipDate=#{ipDate}
 	</select>
 	<select id="findOrderByUser" parameterType="user" resultMap="orderMap">
-		select * from order o left join user u on(o.uid=u.uid) left join mills
+		select * from morder o left join user u on(o.uid=u.uid) left join mills
 		m on(o.mid=m.mid) where u.uid=#{uid}
 	</select>
+	
+	<insert id="saveuserLog" parameterType="userLog">
+		insert into userlog(uid,loginTime,loginIP) values(#{uid},#{loginTime},#{loginIP})
+	</insert>
 </mapper>
